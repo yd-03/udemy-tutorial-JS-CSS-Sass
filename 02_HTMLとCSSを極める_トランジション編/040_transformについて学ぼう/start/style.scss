@@ -3,4 +3,14 @@
   height: 100px;
   margin: 0 auto;
   background-color: orangered;
+  // transform: translate(50px, 50px); // 物体の位置を移動する際に使用する
+
+  // transform: rotate(45deg); // 物体を回転させる際に使用する
+  // transform-origin: top left; // 回転の中心を指定する
+
+  // transform: skew(-30deg); // 物体を傾ける際に使用する
+
+  // transform: scale(1.1, 1.1); // 物体を拡大縮小する際に使用する
+
+  transform: translate(50px, 50px) rotate(45deg) skew(-30deg) scale(1.1, 1.1); // 複数のtransformを同時に使用する
 }
