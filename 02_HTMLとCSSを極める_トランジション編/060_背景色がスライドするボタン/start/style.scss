@@ -15,8 +15,30 @@ $cBlack: black;
   cursor: pointer;
   transition: all 0.3s;
 
-  &:hover {
-    background-color: $cBlack;
-    color: $cWhite;
+  &.slide-bg {
+    position: relative; // 親要素に対して絶対配置を行うための指定
+    overflow: hidden; // 親要素からはみ出た部分を非表示にする
+    z-index: 1; // 親要素よりも上に表示する
+
+    & span {
+      display: inline-block; // 横幅と縦幅を指定できるようにする
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+      z-index: -1; // 親要素よりも下に表示する
+    }
+
+    &:hover {
+      color: $cWhite;
+
+      & span {
+        transform: none; // ホバー時にスライドさせる
+      }
+    }
   }
 }
