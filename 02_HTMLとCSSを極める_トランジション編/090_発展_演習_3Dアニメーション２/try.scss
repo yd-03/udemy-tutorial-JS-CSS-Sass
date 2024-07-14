@@ -17,6 +17,45 @@ $cBlack: black;
 
     &.cubic {
       /** スタイルをここに追加。*/
+
+      & span {
+        position: absolute; // 同じ位置に重ねる
+        // ↓親要素からの相対位置を指定
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box; // borderを含めたサイズにする
+        border: 1px solid $cBlack;
+        line-height: 48px;
+        text-align: center; // テキストを中央揃え
+        transition: all 0.3s;
+        transform-origin: center center -25px;
+      }
+
+      & .hovering {
+        background-color: $cBlack;
+        color: $cWhite;
+        transform: rotateX(90deg);
+        transform-origin: center center -25px;
+      }
+
+      & .default {
+        background-color: $cWhite;
+        color: $cBlack;
+        transform: rotateX(0);
+        transform-origin: center center -25px;
+      }
+
+      // ホバー時のスタイル
+      &:hover {
+        & .hovering {
+          transform: rotateX(0);
+        }
+        & .default {
+          transform: rotateX(-90deg);
+        }
+      }
     }
   }
 }
