@@ -27,4 +27,9 @@
 /* ブロック要素を中央揃え */
 /**
  * 上下方向のレイアウト
- *//*# sourceMappingURL=style.css.map */
+ */
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}/*# sourceMappingURL=style.css.map */
