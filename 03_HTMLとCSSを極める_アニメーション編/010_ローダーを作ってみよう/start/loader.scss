@@ -1,0 +1,41 @@
+$cBlack: black;
+
+.three-dot-spinner {
+  text-align: center; // 中央揃え
+
+  & div {
+    // 3つの点を表示するためのdiv要素
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: $cBlack;
+    border-radius: 50%; // 円形にする
+    animation: sk-bouncedelay 1.4s infinite; // アニメーションの設定 1.4秒で繰り返し
+  }
+
+  & .bounce1 {
+    // 1つ目の点
+    animation-delay: -0.32s;
+  }
+
+  & .bounce2 {
+    // 2つ目の点
+    animation-delay: -0.16s;
+  }
+}
+
+// アニメーションキーフレームの設定
+@keyframes sk-bouncedelay {
+  0% {
+    transform: scale(0); // scale(0)で非表示=点が小さくなる
+  }
+  40% {
+    transform: scale(1); // scale(1)で表示=点が大きくなる
+  }
+  80% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
