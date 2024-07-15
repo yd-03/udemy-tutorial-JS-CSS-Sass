@@ -10,6 +10,11 @@ body {
   height: 100px;
   background-color: $cBlack;
   animation: sk-bouncedelay 1.4s;
+  animation-timing-function: ease; // アニメーションの進行速度を指定
+  // animation-delay: 3s; // アニメーションの開始時間を指定
+  // animation-iteration-count: infinite; // アニメーションの繰り返し回数を指定
+  // animation-direction: reverse; // アニメーションの進行方向を指定
+  // animation-fill-mode: forwards; // アニメーションの最後のフレームを保持するか指定
 }
 
 @keyframes sk-bouncedelay {
