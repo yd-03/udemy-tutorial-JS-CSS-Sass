@@ -7,24 +7,17 @@ body {
   width: 100px;
   height: 100px;
   background-color: black;
-  -webkit-animation: sk-bouncedelay 1.4s;
-          animation: sk-bouncedelay 1.4s;
+  animation-name: sk-bouncedelay;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
 }
 
 .paused {
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-
-@-webkit-keyframes sk-bouncedelay {
-  from {
-    transform: scale(0);
-    background-color: black;
-  }
-  to {
-    transform: scale(1);
-    background-color: green;
-  }
+  animation-play-state: paused;
 }
 
 @keyframes sk-bouncedelay {
