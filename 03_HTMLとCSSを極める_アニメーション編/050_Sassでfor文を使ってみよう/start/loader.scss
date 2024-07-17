@@ -12,12 +12,11 @@ $cBlack: black;
     animation: sk-bouncedelay 1.4s infinite;
   }
 
-  & .bounce1 {
-    animation-delay: -0.32s;
-  }
-
-  & .bounce2 {
-    animation-delay: -0.16s;
+  @for $i from 1 through 2 {
+    // 1から2までの範囲でループ
+    & div:nth-child(#{$i}) {
+      animation-delay: -0.32s / $i;
+    }
   }
 }
 
