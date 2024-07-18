@@ -1,0 +1,62 @@
+@use "mixin" as *;
+
+// containerに対してposition: relativeを指定
+// animate-titleに対してposition: absoluteを指定
+// animate-titleを中央に配置するためにtop: 50%, left: 50%を指定
+
+html {
+  font-family: "Teko", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+#container {
+  position: relative;
+  height: 100vh; // 画面の高さいっぱいに表示
+  background-color: teal;
+}
+
+.animate-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0;
+  font-size: 2em;
+
+  &.inview {
+    opacity: 1;
+
+    & .char {
+      display: inline-block;
+
+      @include animation(
+        $name: kf-animate-chars,
+        $duration: 0.5s,
+        $timing-function: cubic-bezier(0.39, 1.57, 0.58, 1),
+        $fill-mode: both,
+        // アニメーション終了後のスタイルを保持
+      );
+
+      @for $i from 1 through 9 {
+        &:nth-child(#{$i}) {
+          animation-delay: $i * 0.04s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes kf-animate-chars {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
