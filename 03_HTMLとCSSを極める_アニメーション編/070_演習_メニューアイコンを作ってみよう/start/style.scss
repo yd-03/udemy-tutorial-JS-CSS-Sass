@@ -1,0 +1,46 @@
+$cBlack: black;
+$cWhite: white;
+
+.mobile-menu-icon {
+  background-color: transparent; // 背景を透明にする
+  border: none; // 枠線を消す
+  outline: none !important; // クリック時の枠線を消す
+  cursor: pointer; // カーソルをポインターにする
+
+  & > span {
+    background-color: $cBlack; // 背景色を黒にする
+    width: 35px;
+    height: 2px;
+    display: block;
+    margin-bottom: 9px;
+    transition: transform 0.7s; // transformプロパティに対して0.3秒かけて変化させる
+
+    &:last-child {
+      // 最後の子要素に対して
+      margin-bottom: 0;
+    }
+  }
+}
+
+.menu-open {
+  background-color: $cBlack; // 背景色を黒にする
+
+  & .mobile-menu-icon {
+    & > span {
+      background-color: $cWhite; // 背景色を白にする
+
+      &:nth-child(1) {
+        transition-delay: 70ms; // 1番目の子要素に対して70ミリ秒遅らせる
+        transform: translateY(11px) rotate(135deg); // 1番目の子要素に対して
+      }
+      &:nth-child(2) {
+        transition-delay: 0s; // 2番目の子要素に対して遅延なし
+        transform: translateX(-18px) scaleX(0); // 2番目の子要素に対して
+      }
+      &:nth-child(3) {
+        transition-delay: 140ms; // 3番目の子要素に対して140ミリ秒遅らせる
+        transform: translateY(-11px) rotate(-135deg); // 3番目の子要素に対して
+      }
+    }
+  }
+}
